@@ -8,12 +8,20 @@
 <body>
     <div id="myApp">
         <h1>Batman quotes</h1>
+        <!-- <button v-on:click="toggleAuthor">Toggle author</button> -->
+        <button @click="toggleAuthor">Toggle author</button>
+        <!-- <button @click="toggleAuthor = !toggleAuthor">Toggle author</button> -->
         <hr>
 
         <ul>
             <li v-for="({quote, author}, index) in quotes">
                 <span> {{ index + 1}} - {{ quote }}</span>
-                <blockquote>{{ author }}</blockquote>                
+                
+                <!-- v-if destruye el objeto -->
+                <!-- <blockquote v-if="showAuthor">{{ author }}</blockquote>-->
+                
+                <!-- v-show oculta el objeto               -->
+                <blockquote v-show="showAuthor">{{ author }}</blockquote>                
             </li>
         </ul>
 
