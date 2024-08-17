@@ -15,6 +15,7 @@ const app = createApp({
 
         const showAuthor = ref(true);
         const quotes = ref(originalQuotes);
+        const newMessage = ref('');
         const totalQuotes = computed( () => {
             return quotes.value.length;
         });
@@ -24,7 +25,9 @@ const app = createApp({
         }
 
         const addQuote = () => {
-            quotes.value.unshift({ quote: 'Hola mundo', author: 'Josá A. Suárez'});
+            // quotes.value.unshift({ quote: 'Hola mundo', author: 'Josá A. Suárez'});
+            quotes.value.unshift({ quote: newMessage.value, author: 'José A. Suárez'});
+            newMessage.value = '';
         }
 
         return {
@@ -33,6 +36,7 @@ const app = createApp({
             toggleAuthor,
             addQuote,
             totalQuotes,
+            newMessage,
         }
     }
 });
